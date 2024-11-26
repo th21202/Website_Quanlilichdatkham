@@ -1,0 +1,145 @@
+// @import '../../styles/_variables.scss';
+
+// @import '../../styles/common.scss';
+.search-container {
+    position: relative !important;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 25px;
+    background: #f7d800;
+.search {
+    i {
+      margin: 0 5px;
+    }
+    input {
+      height: 30px;
+      width: 360px;
+      background: transparent;
+      border: none;
+      outline: none;
+    }
+  }
+}
+.doctor-container{
+  display: flex;
+  padding: 20px;
+}
+.navbar {
+  width: 200px; // Chiều rộng của navbar
+  background-color: #9d9ea3; // Màu nền
+  padding: 10px;
+}
+.sidebar {
+  width: 200px;
+  margin-right: 20px;
+}
+.sidebar h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.specialty-item {
+  margin: 5px 0;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  text-align: left;
+}
+.specialty-item:hover {
+  background-color: #e0e0e0;
+}
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.doctor-list {
+      /* background-color: white; */
+      position: relative;
+      display: flex;
+      min-width: 0;
+      word-wrap: break-word;
+      border-radius: 24px;
+      overflow: hidden;
+      transform: translateY(0px);
+      transition: 0.5s all;
+      /* filter: drop-shadow(0px 0px 16px rgba(91, 111, 163, 0.16)); */
+      grid-gap: 30px;
+      /* gap: 70px; */
+      /* display: flex
+  ; */
+      /* flex-grow: 1; */
+      padding: 10px;
+}
+
+.doctor-item {
+    width: 100%;
+    height: 372px;
+    border-radius: 12px;
+    border: 3px #C9D8FF solid;
+    background: #efefef;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: translateY(0px);
+    transition: 0.5s all;
+    /* width: 100%; */
+    /* height: 370px; */
+    margin: 10px 0;
+    filter: drop-shadow(0px 0px 16px rgba(91, 111, 163, 0.16));
+}
+.rectangle{
+  // width: 215.07px;
+  height: 275.88px;
+  background: #EAEFFF; 
+  border-top-left-radius: 12px; 
+  border-top-right-radius: 12px
+}
+.avt {
+  width: 250px;
+  height: 275.88px;
+  margin: auto;
+  // width: 300px;
+  //   height: 300px;
+  background-size: cover;
+  background-position: center;
+  
+}
+.status{
+  display: flex;
+  align-items: center;
+      /* justify-content: center; */
+  margin-bottom: 10px;
+}
+.Ellipse699{
+  width: 7.25px; 
+  height: 7.25px; 
+  background: #0FBF00;
+   border-radius: 9999px;
+   margin: 0px 7px;
+   margin-top: 14px;
+}
+.Available{
+  width: 111px; 
+  height: 17px; 
+  color: #0FBF00; 
+  font-size: 15px; 
+  font-family: Outfit; 
+  font-weight: 500; 
+  word-wrap: break-word;
+  margin-top: 14px;
+}
+.doctor-name {
+  color: #263238; 
+  font-size: 20px; 
+  margin: 0px 7px; 
+  font-weight: 600; 
+  word-wrap: break-word
+}

@@ -1,0 +1,14 @@
+
+
+------------------------------------ kết nối CSDL---------------------------------
+Kết nối: Sử dụng Sequelize để kết nối đến cơ sở dữ liệu.
+Định nghĩa mô hình: Tạo các mô hình tương ứng với bảng trong cơ sở dữ liệu.
+Thêm dữ liệu: Sử dụng các phương thức của Sequelize để thêm dữ liệu vào cơ sở dữ liệu.
+Lấy dữ liệu: Sử dụng các phương thức như findAll và findOne để truy vấn dữ liệu.
+Xử lý yêu cầu: Sử dụng controller để xử lý các yêu cầu từ client và gọi các hàm dịch vụ tương ứng.
+------------------------------- các câu lệnh--------------------------------------
+*create
+npx sequelize-cli model:generate --name ModelName --attributes attribute1:type,attribute2:type
+*delete
+npx sequelize-cli model:remove ModelName
+npx sequelize-cli db:migrate

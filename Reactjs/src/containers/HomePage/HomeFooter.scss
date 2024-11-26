@@ -1,0 +1,199 @@
+@import '../../styles/_variables.scss'; // Đảm bảo đường dẫn đúng
+// HomeFooter.scss
+
+.footer {
+    // background-color: #7AAAFC;
+    background: linear-gradient(#67C3F3, #5A98F2);
+    padding-top: 2.5rem; // pt-10
+    padding-bottom: 1.5rem; // pb-6
+  
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding-left: 1.25rem; // 5 * 0.25rem
+      padding-right: 1.25rem; // 5 * 0.25rem
+    }
+  
+    .footer-content {
+      justify-content: space-between;
+      display: flex;
+      flex-direction: column;
+      gap: 30px; // gap-[30px]
+      
+      @media (min-width: 768px) {
+        flex-direction: row; // md:flex-row
+      }
+  
+      .footer-logo {
+        .img{
+            max-width: 100%;
+          // Styles for logo if needed
+        }
+  
+        .footer-text {
+          font-size: 16px; // text-[16px]
+          line-height: 1.75; // leading-7
+          font-weight: 400; // font-[400]
+          margin-top: 1rem; // mt-4
+          color: $textColor; // text-textColor
+        }
+  
+        .social-links {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem; // gap-3
+          margin-top: 1rem; // mt-4
+  
+          .social-icon {
+            width: 2.25rem; // w-9
+            height: 2.25rem; // h-9
+            border: 1px solid #181A1E; // border-[#181A1E]
+            border-radius: 9999px; // rounded-full
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+  
+            &:hover {
+              background-color: $primary-color; // hover:bg-primaryColor
+              border: none; // hover:border-none
+            }
+          }
+        }
+      }
+  
+      .quick-links {
+        
+        .quick-links-title {
+          font-size: 20px; // text-[20px]
+          line-height: 30px; // leading-[30px]
+          font-weight: 700; // font-[700]
+          margin-bottom: 1.5rem; // mb-6
+          color: $heading-color; // text-headingColor
+        }
+  
+        .quick-link-item {
+          margin-bottom: 1rem; // mb-4
+          list-style-type: none;  
+          .quick-link {
+            font-size: 16px; // text-[16px]
+            line-height: 1.75; // leading-7
+            color: $textColor; // text-textColor
+            font-weight: 400; // font-[400]
+          }
+        }
+      }
+  
+      .support {
+        .support-title {
+          font-size: 20px; // text-[20px]
+          line-height: 30px; // leading-[30px]
+          font-weight: 700; // font-[700]
+          margin-bottom: 1.5rem; // mb-6
+          color: $heading-color; // text-headingColor
+        }
+  
+        .support-item {
+          margin-bottom: 1rem; // mb-4
+  
+          .support-link {
+            font-size: 16px; // text-[16px]
+            line-height: 1.75; // leading-7
+            color: $textColor; // text-textColor
+            font-weight: 400; // font-[400]
+          }
+        }
+      }
+    }
+  }
+
+  // styles.scss
+
+// $primary-color: #0066ff; // Màu chính
+// $heading-color: #181A1E; // Màu tiêu đề
+// $text-color: #4E545F; // Màu văn bản
+
+// .pt-10 {
+//   padding-top: 2.5rem; // 10 * 0.25rem
+// }
+
+// .pb-6 {
+//   padding-bottom: 1.5rem; // 6 * 0.25rem
+// }
+
+// .container {
+//   max-width: 1440px;
+//   padding-left: 1.25rem; // 5 * 0.25rem
+//   padding-right: 1.25rem; // 5 * 0.25rem
+//   margin: 0 auto;
+// }
+
+// .flex {
+//   display: flex;
+// }
+
+// .flex-col {
+//   flex-direction: column;
+// }
+
+// .gap-[30px] {
+//   gap: 30px;
+// }
+
+// .md\:flex-row {
+//   @media (min-width: 768px) {
+//     flex-direction: row;
+//   }
+// }
+
+// .flex-wrap {
+//   flex-wrap: wrap;
+// }
+
+// .justify-between {
+//   justify-content: space-between;
+// }
+
+// .text-[16px] {
+//   font-size: 16px;
+// }
+
+// .leading-7 {
+//   line-height: 1.75; // 7 * 0.25rem
+// }
+
+// .font-[400] {
+//   font-weight: 400;
+// }
+
+// .mt-4 {
+//   margin-top: 1rem; // 4 * 0.25rem
+// }
+
+// .text-primaryColor {
+//   color: $primary-color;
+// }
+
+// .text-[20px] {
+//   font-size: 20px;
+// }
+
+// .leading-[30px] {
+//   line-height: 30px;
+// }
+
+// .font-[700] {
+//   font-weight: 700;
+// }
+
+// .mb-6 {
+//   margin-bottom: 1.5rem; // 6 * 0.25rem
+// }
+
+// .text-headingColor {
+//   color: $heading-color;
+// }
+
+// .mb-4 {
+//   margin-bottom: 1rem; // 4 * 0.25rem
+// }

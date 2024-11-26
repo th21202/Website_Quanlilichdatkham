@@ -1,0 +1,18 @@
+// .specialty-child {
+//   cursor: pointer;
+//   .specialty-name {
+//     padding: 10px 0;
+//     &:hover {
+//       color: #45c3d2;
+//     }
+//   }
+// }
+
+.specialty-name {
+  line-height: 2.25rem;
+    // font-size: 27px;
+    font-weight: 600;
+  &:hover {
+    color: #45c3d2;
+  }
+}
