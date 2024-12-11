@@ -46,10 +46,10 @@ export default function Router() {
   return useRoutes([
     // {
     //   path: "/admin",
-    //   element: <AdminLayout />, // Nếu có layout riêng cho admin
+    //   element: <AdminLayout />, 
     //   children: [
     //     { path: "login", element: <AdminLogin /> },
-    //     // Các route khác cho admin
+    //     
     //   ],
     // },
     {

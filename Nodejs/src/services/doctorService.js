@@ -9,13 +9,13 @@ const fs = require("fs");
 
 const MAX_NUMBER_SCHEDULE = process.env.MAX_NUMBER_SCHEDULE;
 
-const units = [
-  { key: "pill", valueVi: "Viên", valueEn: "Pill" },
-  { key: "package", valueVi: "Gói", valueEn: "Package" },
-  { key: "bottle", valueVi: "Chai", valueEn: "Bottle" },
-  { key: "tube", valueVi: "Ống", valueEn: "Tube" },
-  { key: "set", valueVi: "Bộ", valueEn: "Set" },
-];
+// const units = [
+//   { key: "pill", valueVi: "Viên", valueEn: "Pill" },
+//   { key: "package", valueVi: "Gói", valueEn: "Package" },
+//   { key: "bottle", valueVi: "Chai", valueEn: "Bottle" },
+//   { key: "tube", valueVi: "Ống", valueEn: "Tube" },
+//   { key: "set", valueVi: "Bộ", valueEn: "Set" },
+// ];
 
 let getTopDoctorHome = (dataInput) => {
   return new Promise(async (resolve, reject) => {
@@ -758,7 +758,7 @@ let completeBooking = (data) => {
           errCode: 1,
           errMessage: "Missing required parameter",
         });
-      } else {
+      } else {   
         const transaction = await db.sequelize.transaction();
         
         try {
@@ -770,7 +770,8 @@ let completeBooking = (data) => {
               date: data.date,
               statusId: "S1"
             },
-            raw: false,
+            
+            raw: false,//Trả về instance model 
             transaction
           });
 
@@ -784,7 +785,8 @@ let completeBooking = (data) => {
               patientId: data.patientId,
               doctorId: data.doctorId,
               reason: appointment.patientReason,
-              bookingId: appointment.id
+              bookingId: appointment.id,
+              description: data.description
             }, { transaction });
 
             await transaction.commit();

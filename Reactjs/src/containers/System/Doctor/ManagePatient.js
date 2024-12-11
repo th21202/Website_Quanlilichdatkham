@@ -24,6 +24,7 @@ class ManagePatient extends Component {
       currentDate: moment(new Date()).startOf("day").valueOf(),
       dataPatient: [],
       isShowLoading: false,
+      description: "",
     };
   }
 
@@ -74,14 +75,18 @@ class ManagePatient extends Component {
       timeType: item.timeType,
       date: item.date,
       statusId: item.statusId,
+      description: this.state.description,
     });
     if (res && res.errCode === 0) {
-      this.setState({ isShowLoading: false });
-      toast.success("Complete appointment succeed!");
+      this.setState({ 
+        isShowLoading: false,
+        description: ""
+       });
+      toast.success("Hoàn thành cuộc hẹn thành công!");
       await this.getDataPatient();
     } else {
       this.setState({ isShowLoading: false });
-      toast.error("Something went wrong!");
+      toast.error("Đã xảy ra lỗi!!");
     }
   };
 
@@ -93,6 +98,7 @@ class ManagePatient extends Component {
       timeType: item.timeType,
       date: item.date,
       statusId: item.statusId,
+      description: this.state.description,
     });
     if (res && res.errCode === 0) {
       this.setState({ isShowLoading: false });
@@ -111,7 +117,11 @@ class ManagePatient extends Component {
       }
     }
   };
-
+  handleDescriptionChange = (event) => {
+    this.setState({
+      description: event.target.value
+    });
+  };
   
 
   render() {
@@ -146,7 +156,7 @@ class ManagePatient extends Component {
                       <th><FormattedMessage id={"manage-patient.phone-number"} /></th>
                       <th><FormattedMessage id={"manage-patient.gender"} /></th>
                       <th><FormattedMessage id={"manage-patient.reason"} /></th>
-                      {/* <th><FormattedMessage id={"manage-patient.prescription"} /></th> */}
+                      <th><FormattedMessage id={"manage-patient.prescription"} /></th>
                       <th><FormattedMessage id={"manage-patient.actions"} /></th>
                     </tr>
                     {dataPatient && dataPatient.length > 0 ? (
@@ -170,7 +180,16 @@ class ManagePatient extends Component {
                             </td>
                             <td>{gender}</td>
                             <td>{item.patientReason}</td>
-                           
+                            
+                            <td>
+                            <textarea
+                              className="form-control"
+                              rows="2"
+                              value={this.state.description}
+                                onChange={this.handleDescriptionChange}
+                                placeholder="Nhập ghi chú cho bệnh nhân..."
+                              />
+                            </td>
                             <td>
                               <button
                                 className="btn btn-primary"

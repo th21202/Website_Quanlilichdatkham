@@ -50,6 +50,7 @@ class ManageScheduleOneDoctor extends Component {
         {
           listDoctors: dataSelect,
         },
+        //callback: tư đông chọn doctor htai
         () => {
           if (this.props.userInfo && this.state.listDoctors) {
             let listDoctors_copy = [...this.state.listDoctors];
@@ -80,9 +81,9 @@ class ManageScheduleOneDoctor extends Component {
     // }
   }
 
-  handleChangeSelect = async (selectedOption) => {
-    this.setState({ selectedDoctor: selectedOption });
-  };
+  // handleChangeSelect = async (selectedOption) => {
+  //   this.setState({ selectedDoctor: selectedOption });
+  // };
 
   handleOnChangeDatePicker = (date) => {
     console.log("handleOnChangeDatePicker")
@@ -154,7 +155,7 @@ class ManageScheduleOneDoctor extends Component {
       }
       return;
     }
-
+    //=> thành timestamp
     // let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
     let formatedDate = new Date(currentDate).getTime();
 

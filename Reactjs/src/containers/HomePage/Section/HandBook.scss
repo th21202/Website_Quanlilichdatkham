@@ -1,24 +1,10 @@
 
   
   .main-container1 {
-    
     position: relative;
     width: 1648px;
     height: 596px;
-    
     margin: auto;
-  }
-  .appointment-doc-img1 {
-    position: absolute;
-    width: 580px;
-    height: 529px;
-    top: 0;
-    left: 833px;
-    background: url(../../../assets/handbook/handbook-bg.png)
-      no-repeat center;
-    background-size: cover;
-    z-index: 5;
-  }
   .rectangle1 {
     position: absolute;
     width: 1648px;
@@ -26,12 +12,23 @@
     top: 16px;
     left: 0;
     background: #ffffff;
-  }
+    .appointment-doc-img1 {
+      position: absolute;
+      width: 580px;
+      height: 529px;
+      top: 0;
+      left: 833px;
+      background: url(../../../assets/handbook/handbook-bg.png)
+        no-repeat center;
+      background-size: cover;
+      z-index: 5;
+    }
+  
   .rectangle-1 {
     position: relative;
     width: 1430px;
     height: 455px;
-    margin: 58px 0 0 82px;
+    margin: 58px 0 0 50px;
     font-size: 0px;
     background: #5f6fff;
     z-index: 1;
@@ -82,3 +79,5 @@
     white-space: nowrap;
     z-index: 4;
   }
+  }
+}

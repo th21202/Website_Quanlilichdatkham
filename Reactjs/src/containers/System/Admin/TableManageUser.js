@@ -42,8 +42,7 @@ import { sentenceCase } from "change-case";
 
 import {withRouter} from '../../../utils/withRouter';  //navigate
 
-// Register plugins if required
-// MdEditor.use(YOUR_PLUGINS_HERE);
+
 
 // Initialize a markdown parser
 const mdParser = new MarkdownIt(/* Markdown-it options */);

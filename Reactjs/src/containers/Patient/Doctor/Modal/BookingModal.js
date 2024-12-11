@@ -150,17 +150,7 @@ class BookingModal extends Component {
   
   handleConfirmBooking = async () => {
     let {language} = this.props;
-    // Validate input
-  //  // Check limit booking first
-  // let checkLimit = await this.checkLimitBooking();
-  // if (!checkLimit) {
-  //   if(language === "en") {
-  //     toast.warn("This time slot is fully booked, please choose another time!");
-  //   } else {
-  //     toast.warn("Đã quá số lượng giới hạn đặt lịch vào thời gian này, vui lòng chọn khung thời gian khác!");
-  //   }
-  //     return;
-  //   }
+    
     // Hiển thị confirm dialog
     if (window.confirm(language === "en" ? 
       "Are you sure you want to book this appointment?" : 
@@ -171,6 +161,7 @@ class BookingModal extends Component {
     let date = new Date(this.state.birthday).getTime();
     let timeString = this.buildTimeBooking(this.props.dataTime);
     let doctorName = this.handleDoctorName(this.props.dataTime);
+
 
     let res = await postPatientBookAppointment({
       patientName: this.state.patientName,
@@ -187,6 +178,7 @@ class BookingModal extends Component {
       timeString: timeString,
       doctorName: doctorName,
     });
+
 
     if (res && res.errCode === 0) {
       this.setState({ isShowLoading: false });

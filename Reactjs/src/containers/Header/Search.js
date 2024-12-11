@@ -35,14 +35,12 @@ class Search extends Component {
       console.error("Error fetching specialties:", error);
     }
   };
+  handleViewDetailDoctor = (doctor) => {
+    if (this.props.history) {
+      this.props.history.push(`/detail-doctor/${doctor.id}`);
+    }
+  };
 
-  // fetchDoctors() {
-  //   const doctors = [
-  //     { name: "Dr. Richard James", specialty: "General Physician" },
-  //     { name: "Dr. Sarah Smith", specialty: "Dermatologist" },
-  //   ];
-  //   this.setState({ doctors });
-  // }
   fetchDoctorsBySpecialty = async (specialtyId) => {
   
     try {
@@ -118,7 +116,7 @@ class Search extends Component {
                 // imageBase64 = `data:image/jpeg;base64,${doctor.image}`;
               }
               return (
-                <div key={index} className="doctor-item">
+                <div key={index} className="doctor-item" onClick={() => this.handleViewDetailDoctor(doctor)}>
                   <div className="rectangle">
                   <figure className="avt" 
                     style={{ backgroundImage: `url(${imageBase64})`, }}>

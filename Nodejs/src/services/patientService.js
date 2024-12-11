@@ -4,13 +4,6 @@ require("dotenv").config();
 
 import { v4 as uuidv4 } from "uuid";
 
-
-let buildUrlEmail = (doctorId, token) => {
-  let result = `${process.env.URL_REACT}/verify-booking?token=${token}&doctorId=${doctorId}`;
-
-  return result;
-};
-
 // let postBookAppointment = (data) => {
 //   return new Promise(async (resolve, reject) => {
 //     try {
@@ -86,7 +79,6 @@ let buildUrlEmail = (doctorId, token) => {
 let postBookAppointment = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
-      // 1. Validate input
       if (!data.email || !data.doctorId || !data.timeType || !data.date || !data.patientName) {
         return resolve({
           errCode: 1,
@@ -94,7 +86,7 @@ let postBookAppointment = (data) => {
         });
       }
 
-      // 2. Kiểm tra xem khung giờ này đã có người đặt chờ khám chưa (status = S1)
+      //Kiểm tra xem khung giờ  (status = S1)
       let existingBooking = await db.Booking.findOne({
         where: { 
           date: data.date,
@@ -103,7 +95,21 @@ let postBookAppointment = (data) => {
           statusId: "S1"  // Chỉ tính các booking đang chờ khám
         }
       });
+    //    // Lấy maxNumber từ bảng AllCode
+    //    let timeSlot = await db.Allcode.findOne({
+    //     where: {
+    //         keyMap: data.timeType,
+    //         type: 'TIME'
+    //     }
+    // });
 
+    // // Kiểm tra với maxNumber
+    // if (currentBookings >= timeSlot.maxNumber) {
+    //     return {
+    //         errCode: 3,
+    //         errMessage: 'Đã đạt số lượng tối đa cho khung giờ này'
+    //     }
+    // }
       if (existingBooking) {
         return resolve({
           errCode: 3,
@@ -111,14 +117,14 @@ let postBookAppointment = (data) => {
         });
       }
 
-      // 3. Nếu chưa có ai đặt, tạo booking mới với status = S1
+      // Nếu chưa có ai đặt, tạo booking mới với status = S1
       let user = await db.User.findOne({
         where: { email: data.email }
       });
 
       if (user) {
         await db.Booking.create({
-          statusId: "S1",  // Trạng thái chờ khám
+          statusId: "S1",  
           doctorId: data.doctorId,
           patientId: user.id,
           date: data.date,
@@ -143,40 +149,6 @@ let postBookAppointment = (data) => {
   });
 };
 
-
-let postVerifyBookAppointment = (data) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      if (!data.token || !data.doctorId) {
-        resolve({
-          errCode: 1,
-          errMessage: "Missing required parameter",
-        });
-      } else {
-        let appointment = await db.Booking.findOne({
-          where: { doctorId: data.doctorId, token: data.token, statusId: "S1" },
-          raw: false,
-        });
-
-        if (appointment) {
-          appointment.statusId = "S2";
-          await appointment.save();
-          resolve({
-            errCode: 0,
-            errMessage: "Update the appointment succeed!",
-          });
-        } else {
-          resolve({
-            errCode: 2,
-            errMessage: "Appointment has been activated or does not exist!",
-          });
-        }
-      }
-    } catch (e) {
-      reject(e);
-    }
-  });
-};
 
 
 let filterHistory = (data) => {
@@ -281,7 +253,7 @@ let filterHistory = (data) => {
 
 module.exports = {
   postBookAppointment: postBookAppointment,
-  postVerifyBookAppointment: postVerifyBookAppointment,
+  
   filterHistory:filterHistory
 };
 

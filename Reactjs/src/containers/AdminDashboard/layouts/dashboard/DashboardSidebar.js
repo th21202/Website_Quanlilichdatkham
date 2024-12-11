@@ -75,7 +75,6 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
 
-
   useEffect(() => {
     setUserInfoState(userInfo);
     let imageBase64 = "";
@@ -84,47 +83,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
       setImageBase64State(imageBase64);
     }
 
-    //name
-    let nameCopy = "";
-    if (userInfo && userInfo.lastName && userInfo.firstName) {
-      nameCopy = `${userInfo.lastName} ${userInfo.firstName}`;
-      setName(nameCopy);
-    }
-    if (userInfo && userInfo.lastName && userInfo.firstName === null) {
-      nameCopy = `${userInfo.lastName}`;
-      setName(nameCopy);
-    }
-    if (userInfo && userInfo.lastName === null && userInfo.firstName) {
-      nameCopy = `${userInfo.firstName}`;
-      setName(nameCopy);
-    }
-
-    //role
-    if (userInfo && userInfo.roleId && userInfo.roleId === USER_ROLE.ADMIN) {
-      setRole("ADMIN");
-    }
-    if (userInfo && userInfo.roleId && userInfo.roleId === USER_ROLE.DOCTOR) {
-      setRole("DOCTOR");
-    }
-    if (
-      userInfo &&
-      userInfo.roleId &&
-      userInfo.roleId !== USER_ROLE.DOCTOR &&
-      userInfo.roleId !== USER_ROLE.ADMIN
-    ) {
-      setRole("");
-    }
-  }, []);
-
-  useEffect(() => {
-    setUserInfoState(userInfo);
-    let imageBase64 = "";
-    if (userInfo && userInfo.image) {
-      imageBase64 = new Buffer(userInfo.image, "base64").toString("binary");
-      setImageBase64State(imageBase64);
-    }
-
-    //name
+    //name 3 trường hợp 
     let nameCopy = "";
     if (userInfo && userInfo.lastName && userInfo.firstName) {
       nameCopy = `${userInfo.lastName} ${userInfo.firstName}`;

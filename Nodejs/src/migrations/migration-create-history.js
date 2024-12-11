@@ -14,9 +14,9 @@ module.exports = {
       doctorId: {
         type: Sequelize.INTEGER,
       },
-      // description: {
-      //   type: Sequelize.TEXT,
-      // },
+      description: {
+        type: Sequelize.TEXT,
+      },
       // drugs: {
       //   type: Sequelize.TEXT,
       //   allowNull: true,

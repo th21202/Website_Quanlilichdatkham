@@ -49,7 +49,6 @@ class UserRedux extends Component {
   }
 //
   componentDidUpdate(prevProps, prevState, snapshot) {
-    //render=>didupdate
     //hien tai(this) va qua khu(previous)
     //[] [3]
     //[3] [3]
@@ -60,7 +59,6 @@ class UserRedux extends Component {
         genderArr: arrGenders,
       });
     }
-    //khi nào có data sẽ setstate
     if (prevProps.positionRedux !== this.props.positionRedux) {
       let arrPositions = this.props.positionRedux;
       this.setState({

@@ -40,7 +40,6 @@ import indexAdminDashboard from "./AdminDashboard/indexAdminDashboard";
 
 import { getOptionGroupUnstyledUtilityClass } from "@mui/base";
 
-
 import ProfileSetting from "./Profile/ProfileSetting";
 
 
@@ -74,7 +73,7 @@ class App extends Component {
         {/* giữ lại data -> ko gọi api nhiều lần  */}
         <Router history={history}>
           <div className="main-container">
-            {/* <ConfirmModal /> */}
+          
             {/* {this.props.isLoggedIn && <Header />} */}
             <div className="content-container">
               <CustomScrollbars style={{ height: "100vh", width: "100%" }}>

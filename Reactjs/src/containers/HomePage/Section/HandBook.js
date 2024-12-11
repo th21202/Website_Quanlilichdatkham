@@ -13,8 +13,8 @@ class HandBook extends Component {
   render() {
     return (
       <div className="main-container1">
-        <div className="appointment-doc-img1"></div>
         <div className="rectangle1">
+        <div className="appointment-doc-img1"></div>
           <div className="rectangle-1">
             <span className="book-appointment">
               Book Appointment <br />With 100+ Trusted Doctors
