@@ -32,13 +32,7 @@ export default function MedicalHistory() {
     const [histories, setHistories] = useState([]);
     const [previewImgURL, setPreviewImgURL] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
-    const [units, setUnits] = useState([
-      {key: "pill", valueVi:"Viên", valueEn:"Pill"},
-      {key: "package", valueVi:"Gói", valueEn:"Package"},
-      {key: "bottle", valueVi:"Chai", valueEn:"Bottle"},
-      {key: "tube", valueVi:"Ống", valueEn:"Tube"},
-      {key: "set", valueVi:"Bộ", valueEn:"Set"},
-    ]);
+   
     const [isShowLoading, setIsShowLoading] = useState(false);
     
     
@@ -64,23 +58,6 @@ export default function MedicalHistory() {
 
     console.log("userInfo",userInfo)
 
-  const handleOnchangeDate=(event,type)=>{
-      if(type=="startDate"){
-        setStartDate(event.target.value)
-      }else{
-        setEndDate(event.target.value)
-      }
-      if(startDate)console.log("startDate",startDate)
-      console.log("endDate",endDate)
-  }
-
-  const handleResetDate=async ()=>{
-    setStartDate("")
-    setEndDate("")
-
-    await handleFilterHistoriesByDate(userInfo.id,"","")
-}
-
 const checkValidateInput=()=>{
     if(!startDate){
       if(language=="vi"){
@@ -101,28 +78,6 @@ const checkValidateInput=()=>{
     }
 
     return true;
-}
-
-const handleFilterHistoryByDateApply=async ()=>{
-  let bool = checkValidateInput();
-  if(!bool) return;
-
-  setIsShowLoading(true)
-
-  let data={
-    patientId:patientId,
-    startDate:startDate,
-    endDate:endDate
-  }
-
-  let res = await filterHistoriesPatient(data)
-  if(res && res.errCode==0){
-      setHistories(res.data)
-      setIsShowLoading(false)
-  }else{
-    setIsShowLoading(false)
-  }
-
 }
 
 const handleFilterHistoriesByDate=async (patientId,startDate,endDate)=>{
@@ -169,13 +124,6 @@ const handleDownloadImage = (item) => {
   }
 };
 
-const handleGetValueUnit=(unitKey)=>{
-    let finded = units.find(item=>item.key==unitKey)
-    if(finded){
-      if(language=="vi") return finded.valueVi
-      else return finded.valueEn
-    }
-}
 
   return (
     <LoadingOverlay
@@ -186,23 +134,7 @@ const handleGetValueUnit=(unitKey)=>{
             <div class="d-flex justify-content-center">
               <h2><FormattedMessage id="medical-history.title" /></h2>
             </div>
-            <div class="row">
-                <div class="col-12 mb-20">
-                  <h3><FormattedMessage id="medical-history.filters" /></h3>
-                </div>
-                <div class="col-12 mb-5">
-                  <span style={{width:'100px',display:'inline-block'}}><FormattedMessage id="medical-history.from-date" /></span>
-                  <input type="date" class="ml-5" value={startDate} onChange={(event)=>handleOnchangeDate(event,"startDate")}/>
-                </div>
-                <div class="col-12">
-                  <span style={{width:'100px',display:'inline-block'}}><FormattedMessage id="medical-history.to-date" /></span>
-                  <input type="date" class="ml-5" value={endDate} onChange={(event)=>handleOnchangeDate(event,"endDate")}/>
-                </div>
-                <div class="col-12 mt-10">
-                    <button onClick={()=>handleFilterHistoryByDateApply()} type="button" class="btn btn-primary mr-5"><FormattedMessage id="medical-history.apply" /></button>
-                    <button type="button" class="btn btn-primary" onClick={()=>handleResetDate()}><FormattedMessage id="medical-history.reset" /></button>
-                </div>
-            </div>
+           
 
             <div class="row">
                 <div class="col-12">

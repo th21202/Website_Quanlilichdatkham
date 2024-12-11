@@ -10,13 +10,6 @@ import EditProfileModal from "./EditProfileModal"
 
 import * as actions from "../../../store/actions";
 import { LANGUAGES, CRUD_ACTIONS, CommonUtils } from "../../../utils";
-
-// import { Modal } from "reactstrap";
-
-// import {
-//   getHandleLoginGoogle
-// } from "../../services/userService";
-
 export default function MyAccount() {
     const [isOpenModalBooking, setIsOpenModalBooking] = useState(false);
 
